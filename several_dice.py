@@ -2,7 +2,7 @@ import math
 import cv2 as cv
 
 for k in range(3):
-    file_path = 'read_several_dice_image/' + str(k + 1) + '.png'
+    file_path = 'several_dice_image/' + str(k + 1) + '.png'
     img = cv.imread(file_path, cv.IMREAD_GRAYSCALE)
     _, img_bin = cv.threshold(img, 0, 255, cv.THRESH_BINARY_INV | cv.THRESH_OTSU)
     contours, hierarchy = cv.findContours(img_bin, cv.RETR_TREE, cv.CHAIN_APPROX_NONE)
