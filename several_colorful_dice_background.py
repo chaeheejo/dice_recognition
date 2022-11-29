@@ -1,7 +1,7 @@
 import cv2 as cv
 
 img = cv.imread('several_colorful_dice_background_image/1.jpg')
-rgb_img = cv.cvtColor(img, cv.COLOR_BGR2RGB)
+rgb_img = img[:]
 img = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 
 _, thresh = cv.threshold(img,220,255, cv.THRESH_BINARY_INV)
@@ -17,17 +17,17 @@ second_dice = edge[y1:y1 + h1, x1:x1 + w1]
 
 first_circles = cv.HoughCircles(first_dice,cv.HOUGH_GRADIENT,1.2,20,param1=50,param2=25,minRadius=3,maxRadius=35)
 second_circles = cv.HoughCircles(second_dice,cv.HOUGH_GRADIENT,1.2,20,param1=50,param2=25,minRadius=3,maxRadius=35)
-print('#1 dice value is', len(first_circles[0]), len(second_circles[0]))
+print('#1 In ascending order, the dice value is', len(first_circles[0]), len(second_circles[0]))
 
 #show detected dice at image
-cv.rectangle(rgb_img, (x0,y0),(x0+w0,y0+h0), (0,255,0),5)
-cv.rectangle(rgb_img, (x1,y1),(x1+w1,y1+h1), (0,255,0),5)
+cv.rectangle(rgb_img, (x0,y0),(x0+w0,y0+h0), (255,0,0),5)
+cv.rectangle(rgb_img, (x1,y1),(x1+w1,y1+h1), (255,0,0),5)
 
 circles = cv.HoughCircles(edge,cv.HOUGH_GRADIENT,1.2,20,param1=50,param2=25,minRadius=3,maxRadius=35)
 circles=circles[0,:]
 
 for circle in circles:
-    cv.circle(rgb_img,(int(circle[0]),int(circle[1])),int(circle[2]),(0,255,0),2)
+    cv.circle(rgb_img,(int(circle[0]),int(circle[1])),int(circle[2]),(255,0,0),2)
     cv.circle(rgb_img,(int(circle[0]),int(circle[1])),2,(0,0,255),3)
 
 cv.imshow('rgb_img', rgb_img)
@@ -36,7 +36,7 @@ cv.waitKey()
 
 
 img = cv.imread('several_colorful_dice_background_image/2.jpg')
-rgb_img = cv.cvtColor(img, cv.COLOR_BGR2RGB)
+rgb_img = img[:]
 img = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 
 _, thresh = cv.threshold(img,220,255, cv.THRESH_BINARY_INV)
@@ -56,23 +56,23 @@ first_dice_ = edge_[y0:y0+h0, x0:x0+w0]
 second_dice_ = edge_[y1:y1+h1, x1:x1+w1]
 third_dice_ = edge_[y2:y2+h2, x2:x2+w2]
 
-first_circles_ = cv.HoughCircles(first_dice_,cv.HOUGH_GRADIENT,1.2,20,param1=50,param2=25,minRadius=3,maxRadius=35)
-second_circles_ = cv.HoughCircles(second_dice_,cv.HOUGH_GRADIENT,1.2,20,param1=50,param2=25,minRadius=3,maxRadius=35)
-third_circles_ = cv.HoughCircles(third_dice_,cv.HOUGH_GRADIENT,1.2,20,param1=50,param2=25,minRadius=3,maxRadius=35)
+first_circles_ = cv.HoughCircles(first_dice_,cv.HOUGH_GRADIENT,1.2,30,param1=50,param2=30,minRadius=20,maxRadius=35)
+second_circles_ = cv.HoughCircles(second_dice_,cv.HOUGH_GRADIENT,1.2,30,param1=50,param2=30,minRadius=20,maxRadius=35)
+third_circles_ = cv.HoughCircles(third_dice_,cv.HOUGH_GRADIENT,1.2,30,param1=50,param2=30,minRadius=20,maxRadius=35)
 
 sorted_circles = sorted([len(first_circles_[0]), len(second_circles_[0]), len(third_circles_[0])])
-print('#2 dice value is', sorted_circles[0], sorted_circles[1], sorted_circles[2])
+print('#2 In ascending order, the dice value is', sorted_circles[0], sorted_circles[1], sorted_circles[2])
 
 #show detected dice at image
-cv.rectangle(rgb_img, (x0,y0),(x0+w0,y0+h0), (0,255,0),5)
-cv.rectangle(rgb_img, (x1,y1),(x1+w1,y1+h1), (0,255,0),5)
-cv.rectangle(rgb_img, (x2,y2),(x2+w2,y2+h2), (0,255,0),5)
+cv.rectangle(rgb_img, (x0,y0),(x0+w0,y0+h0), (255,0,0),5)
+cv.rectangle(rgb_img, (x1,y1),(x1+w1,y1+h1), (255,0,0),5)
+cv.rectangle(rgb_img, (x2,y2),(x2+w2,y2+h2), (255,0,0),5)
 
 circles = cv.HoughCircles(edge_,cv.HOUGH_GRADIENT,1.2,30,param1=50,param2=30,minRadius=20,maxRadius=35)
 circles=circles[0,:]
 
 for circle in circles:
-    cv.circle(rgb_img,(int(circle[0]),int(circle[1])),int(circle[2]),(0,255,0),2)
+    cv.circle(rgb_img,(int(circle[0]),int(circle[1])),int(circle[2]),(255,0,0),2)
     cv.circle(rgb_img,(int(circle[0]),int(circle[1])),2,(0,0,255),3)
 
 cv.imshow('rgb_img', rgb_img)
@@ -81,7 +81,7 @@ cv.waitKey()
 
 
 img = cv.imread('several_colorful_dice_background_image/3.png')
-rgb_img = cv.cvtColor(img, cv.COLOR_BGR2RGB)
+rgb_img = img[:]
 img = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 
 _, thresh = cv.threshold(img,220,255, cv.THRESH_BINARY_INV)
@@ -115,22 +115,22 @@ sixth_circles__ = cv.HoughCircles(sixth_dice__,cv.HOUGH_GRADIENT,1.2,60,param1=5
 
 sorted_circles = sorted([len(first_circles__[0]), len(second_circles__[0]), len(third_circles__[0]), len(fourth_circles__[0]),
                          len(fifth_circles__[0]), len(sixth_circles__[0])])
-print('#3 dice value is', sorted_circles[0], sorted_circles[1], sorted_circles[2], sorted_circles[3], sorted_circles[4],
+print('#3 In ascending order, the dice value is', sorted_circles[0], sorted_circles[1], sorted_circles[2], sorted_circles[3], sorted_circles[4],
       sorted_circles[5])
 
 #show detected dice at image
-cv.rectangle(rgb_img, (x0,y0),(x0+w0,y0+h0), (0,255,0),5)
-cv.rectangle(rgb_img, (x1,y1),(x1+w1,y1+h1), (0,255,0),5)
-cv.rectangle(rgb_img, (x2,y2),(x2+w2,y2+h2), (0,255,0),5)
-cv.rectangle(rgb_img, (x3,y3),(x3+w3,y3+h3), (0,255,0),5)
-cv.rectangle(rgb_img, (x4,y4),(x4+w4,y4+h4), (0,255,0),5)
-cv.rectangle(rgb_img, (x5,y5),(x5+w5,y5+h5), (0,255,0),5)
+cv.rectangle(rgb_img, (x0,y0),(x0+w0,y0+h0), (255,0,0),5)
+cv.rectangle(rgb_img, (x1,y1),(x1+w1,y1+h1), (255,0,0),5)
+cv.rectangle(rgb_img, (x2,y2),(x2+w2,y2+h2), (255,0,0),5)
+cv.rectangle(rgb_img, (x3,y3),(x3+w3,y3+h3), (255,0,0),5)
+cv.rectangle(rgb_img, (x4,y4),(x4+w4,y4+h4), (255,0,0),5)
+cv.rectangle(rgb_img, (x5,y5),(x5+w5,y5+h5), (255,0,0),5)
 
 circles = cv.HoughCircles(edge__,cv.HOUGH_GRADIENT,1.2,60,param1=50,param2=30,minRadius=10,maxRadius=35)
 circles=circles[0,:]
 
 for circle in circles:
-    cv.circle(rgb_img,(int(circle[0]),int(circle[1])),int(circle[2]),(0,255,0),2)
+    cv.circle(rgb_img,(int(circle[0]),int(circle[1])),int(circle[2]),(255,0,0),2)
     cv.circle(rgb_img,(int(circle[0]),int(circle[1])),2,(0,0,255),3)
 
 cv.imshow('rgb_img', rgb_img)
