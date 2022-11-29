@@ -49,6 +49,7 @@
 #2 In ascending order, dice value is 2 2
 ```
 
+<br/>
 
 ## several_colorful_dice_background.py
 > recognize several colorful dice at colorful background
