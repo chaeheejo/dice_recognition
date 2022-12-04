@@ -35,7 +35,7 @@ cv.waitKey()
 
 
 
-img = cv.imread('several_colorful_dice_background_image/2.jpg')
+img = cv.imread('colorful_dice_and_background_image/2.jpg')
 rgb_img = img[:]
 img = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 
@@ -78,7 +78,7 @@ cv.waitKey()
 
 
 
-img = cv.imread('several_colorful_dice_background_image/3.png')
+img = cv.imread('colorful_dice_and_background_image/3.png')
 rgb_img = img[:]
 img = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 

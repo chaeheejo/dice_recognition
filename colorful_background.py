@@ -37,7 +37,7 @@ cv.waitKey()
 
 
 
-img = cv.imread('several_dice_colorful_background_image/2.png')
+img = cv.imread('colorful_background_image/2.png')
 rgb_img = img[:]
 img = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 
