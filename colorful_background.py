@@ -1,6 +1,6 @@
 import cv2 as cv
 
-img = cv.imread('several_dice_colorful_background_image/1.jpg')
+img = cv.imread('colorful_background_image/1.jpg')
 rgb_img = img[:]
 img = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 

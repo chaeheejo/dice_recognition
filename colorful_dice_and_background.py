@@ -1,6 +1,6 @@
 import cv2 as cv
 
-img = cv.imread('several_colorful_dice_background_image/1.jpg')
+img = cv.imread('colorful_dice_and_background_image/1.jpg')
 rgb_img = img[:]
 img = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 
@@ -42,9 +42,7 @@ img = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 _, thresh = cv.threshold(img,220,255, cv.THRESH_BINARY_INV)
 
 edge_ = cv.Canny(thresh,9, 150)
-
-kernel = cv.getStructuringElement(cv.MORPH_RECT, (3,3))
-dilate = cv.dilate(edge_,kernel,iterations = 1)
+dilate = cv.dilate(edge_, None)
 
 contours, hierarchy = cv.findContours(dilate, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
 
