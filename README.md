@@ -66,3 +66,20 @@
 #2 In ascending orde, dice value is 1 3 6
 #3 In ascending orde, dice value is 1 2 3 4 5 6
 ```
+
+<br/>
+
+## broad_side.py
+> recognize the broad side of dice
+
+### input image example:
+![image](https://user-images.githubusercontent.com/65950056/214777828-461afbb4-3a4d-4a28-9d98-c9789dcdd89d.jpeg)
+
+### output:
+<img width="250" alt="image" src="https://user-images.githubusercontent.com/65950056/214777935-aa128b12-a023-467c-93a0-e830d204e569.png">
+
+```
+#1 dice value is 5
+#2 dice value is 3
+```
+
